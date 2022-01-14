@@ -23,7 +23,7 @@ export default function Home({ posts }) {
   );
 }
 
-// Fetch data at build time
+// Fetch data at build time - a Next.js feature
 export async function getStaticProps() {
   const posts = (await getPosts()) || [];
   return {
