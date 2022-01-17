@@ -3,7 +3,7 @@ import { submitComment } from '../services';
 
 const CommentsForm = ({ slug }) => {
 	const [error, setError] = useState(false);
-	const [setLocalStorage] = useState(null);
+	const [localStorage, setLocalStorage] = useState(null);
 	const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 	const [formData, setFormData] = useState({
 		name: null,
@@ -52,11 +52,11 @@ const CommentsForm = ({ slug }) => {
 		};
 
 		if (storeData) {
-			window.localStorage.setItem('name', name);
-			window.localStorage.setItem('email', email);
+			localStorage.setItem('name', name);
+			localStorage.setItem('email', email);
 		} else {
-			window.localStorage.removeItem('name');
-			window.localStorage.removeItem('email');
+			localStorage.removeItem('name');
+			localStorage.removeItem('email');
 		}
 
 		submitComment(commentObj).then((res) => {
